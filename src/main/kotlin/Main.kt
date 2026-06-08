@@ -1,19 +1,7 @@
 package org.example
 
 fun main() {
-
-        val userName = "Ilya"
-        val morningGreeting = "Good Morning"
-        val eveningGreeting = "Good Evening"
-
-        var greeting: String
-
-        greeting = morningGreeting
-        println("$greeting, $userName!")
-
-        greeting = eveningGreeting
-        println("$greeting, $userName!")
-
-
+    val number = 7
+    println("$number * 1 = ${number * 1}  $number * 2 = ${number * 2} $number * 3 = ${number * 3}  $number * 4 = ${number * 4}  $number * 5 = ${number * 5}  $number * 6 = ${number * 6}  $number * 7 = ${number * 7}  $number * 8 = ${number * 8}  $number * 9 = ${number * 9}" )
 
 }
