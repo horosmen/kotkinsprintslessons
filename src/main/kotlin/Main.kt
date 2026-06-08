@@ -7,7 +7,7 @@ fun main() {
     var moveNumber: Int = 1     // Номер хода
 
 // Шаг 2 формирование строки хода
-    var moveString: String = "[$from-$to;$moveNumber]"
+    val moveString: String = "$from-$to;$moveNumber"
     println(moveString)
 
 // Шаг 3 Следующий ход
@@ -16,7 +16,7 @@ fun main() {
     moveNumber++
 
 // Шаг 4 формирование строки хода
-    var nextMoveString = "[$from-$to;$moveNumber]"
+    val nextMoveString = "$from-$to;$moveNumber"
     println(nextMoveString)
 
 }
