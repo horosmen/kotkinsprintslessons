@@ -1,14 +1,7 @@
 package org.example
 
 fun main() {
-    val firstName = "Татьяна"
-    val patronymic = "Сергеевна"
-    var lastName = "Андреева"
-    var age = 20
-    println("[$lastName $firstName $patronymic, $age]")
-    lastName = "Сидорова"
-    age = 22
-    println("[$lastName $firstName $patronymic, $age]")
-
+    val number = 7
+    println("$number * 1 = ${number * 1}  $number * 2 = ${number * 2} $number * 3 = ${number * 3}  $number * 4 = ${number * 4}  $number * 5 = ${number * 5}  $number * 6 = ${number * 6}  $number * 7 = ${number * 7}  $number * 8 = ${number * 8}  $number * 9 = ${number * 9}" )
 
 }
