@@ -1,11 +1,19 @@
 package org.example
 
+const val FAVORABLE_WEATHER_SUNNY = true
+const val FAVORABLE_TENT_OPEN = true
+const val FAVORABLE_AIR_HUMIDITY = 20
+const val UNFAVORABLE_SEASON = "winter"
+
 fun main() {
-    val weatherToDay: Boolean = true
-    val tentOpen: Boolean = true
+    val isWeatherToDay: Boolean = true
+    val isTentOpen: Boolean = true
     val airHumidity: Int = 20
     val season: String = "winter"
-    val favorableConditions = weatherToDay && tentOpen && airHumidity == 20 && season != "winter"
+    val favorableConditions = isWeatherToDay == FAVORABLE_WEATHER_SUNNY &&
+            isTentOpen == FAVORABLE_TENT_OPEN &&
+            airHumidity == FAVORABLE_AIR_HUMIDITY &&
+            season != UNFAVORABLE_SEASON
     println("Благоприятные ли условия сейчас для роста бобовых? $favorableConditions")
 
 }
