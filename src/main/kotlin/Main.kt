@@ -5,7 +5,7 @@ const val MAX_WEIGHT = 100.0 // кг, включительно
 const val MAX_VOLUME = 100.0 // л, не включительно
 
 fun main() {
-    val (cargoWeightOne, cargoVolumeOne) = Pair(20 , 80)
+    val (cargoWeightOne, cargoVolumeOne) = Pair(20, 80)
     val (cargoWeightTwo, cargoVolumeTwo) = Pair(50, 100)
     println(
         "Груз с весом $cargoWeightOne кг и объемом $cargoVolumeOne л соответствует категории 'Average': "
