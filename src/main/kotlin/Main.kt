@@ -1,36 +1,14 @@
 package org.example
 
 fun main() {
-    val dayNomber = 5
-    var (isHands, isPress) = Pair(true, true)
-    var (isLegs, isBack) = Pair(true, true)
-    if (dayNomber % 2 == 0) {
-        isHands = !isHands
-        isPress = !isPress
-        println(
-            """
-        Упражнения для рук:$isHands
+    val dayNumber = 5
+    val isEvenDay = dayNumber % 2 == 0
 
-        Упражнения для ног: $isLegs
-
-        Упражнения для спины: $isBack
-
-        Упражнения для пресса: $isPress"""
-        )
-    } else {
-        isLegs = !isLegs
-        isBack = !isBack
-        println(
-            """
-        Упражнения для рук:$isHands
-
-        Упражнения для ног: $isLegs
-
-        Упражнения для спины: $isBack
-
-        Упражнения для пресса: $isPress"""
-        )
-    }
-
-
+    println(
+        """
+        Упражнения для рук: ${!isEvenDay}
+        Упражнения для ног: $isEvenDay
+        Упражнения для спины: $isEvenDay
+        Упражнения для пресса: ${!isEvenDay}"""
+    )
 }
