@@ -11,7 +11,7 @@ fun main() {
     val isFavorableWeather = readln().toBoolean()
 
     val isCanDepart = (!isDamage && crew in CREW_MIN..CREW_MAX && foodBoxes > PROVISION_MIN) ||
-            (isDamage && crew == 70 && isFavorableWeather && foodBoxes >= PROVISION_MIN)
+            (isDamage && crew == CREW_MAX && isFavorableWeather && foodBoxes >= PROVISION_MIN)
 
     println(if (isCanDepart) "Корабль может отправиться в плавание" else "Корабль не может отправиться в плавание")
 
