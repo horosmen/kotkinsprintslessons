@@ -8,7 +8,10 @@ fun main() {
     println("Введите ваше второе число для победы: ")
     val checkNumberTwo = readln().toInt()
     if (winningNumberOne == checkNumberOne && winningNumberTwo == checkNumberTwo || winningNumberOne == checkNumberTwo && winningNumberTwo == checkNumberOne) {
-        println("Поздравляем! Вы выиграли главный приз!")
+        println( """
+            |Поздравляем! Вы выиграли главный приз!
+            |Загадынные числа: 15 и 30
+        """.trimMargin())
     } else if ((winningNumberOne == checkNumberOne || winningNumberTwo == checkNumberTwo) || (winningNumberOne == checkNumberTwo || winningNumberTwo == checkNumberOne)) {
         println(
             """
