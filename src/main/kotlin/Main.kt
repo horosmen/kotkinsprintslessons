@@ -7,23 +7,27 @@ fun main() {
     val checkNumberOne = readln().toInt()
     println("Введите ваше второе число для победы: ")
     val checkNumberTwo = readln().toInt()
-    if (winningNumberOne == checkNumberOne && winningNumberTwo == checkNumberTwo || winningNumberOne == checkNumberTwo && winningNumberTwo == checkNumberOne) {
-        println( """
+    if (winningNumberOne == checkNumberOne && winningNumberTwo == checkNumberTwo ||
+        winningNumberOne == checkNumberTwo && winningNumberTwo == checkNumberOne) {
+        println(
+            """
             |Поздравляем! Вы выиграли главный приз!
-            |Загадынные числа: 15 и 30
-        """.trimMargin())
-    } else if ((winningNumberOne == checkNumberOne || winningNumberTwo == checkNumberTwo) || (winningNumberOne == checkNumberTwo || winningNumberTwo == checkNumberOne)) {
+            |Загаданные числа: $winningNumberOne и $winningNumberTwo
+        """.trimMargin()
+        )
+    } else if ((winningNumberOne == checkNumberOne || winningNumberTwo == checkNumberTwo) ||
+        (winningNumberOne == checkNumberTwo || winningNumberTwo == checkNumberOne)) {
         println(
             """
             |Вы выиграли утешительный приз!
-            |Загадынные числа: 15 и 30
+            |Загаданные числа: $winningNumberOne и $winningNumberTwo
         """.trimMargin()
         )
     } else {
         println(
             """
             |Неудача!
-            |Загадынные числа: 15 и 30
+            |Загаданные числа: $winningNumberOne и $winningNumberTwo
         """.trimMargin()
         )
     }
