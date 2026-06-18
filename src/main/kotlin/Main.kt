@@ -1,7 +1,7 @@
 package org.example
 
 fun main() {
-    println("Пожалуйста задайте таймеру количество секунд: ")
+    println("Пожалуйста задайте количество секунд: ")
     var count = readlnOrNull()?.toIntOrNull()
     if (count == null) {
         println("введите число")
