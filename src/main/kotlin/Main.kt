@@ -3,13 +3,13 @@ package org.example
 fun main() {
     println("Задайте количество секунд: ")
     val userInputSeconds = readln().toIntOrNull()
-    if (userInputSeconds != null) {
+    if (userInputSeconds != null && userInputSeconds > 0) {
         for (i in userInputSeconds downTo 1) {
-            println("Осталось: $i секунд")
+            println("Осталось: $i сек")
             Thread.sleep(1000)
         }
     } else {
-        println("Ошибка вы ввели не число.")
+        println("Ошибка ввода.")
         return
     }
 
