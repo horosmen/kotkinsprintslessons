@@ -21,7 +21,9 @@ fun main() {
         passwordChars.shuffle()
         println(passwordChars.joinToString(""))
     }
-
+    else {
+        println("Введите число!")
+    }
 
 }
 
