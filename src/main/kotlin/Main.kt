@@ -1,8 +1,8 @@
 fun main() {
     val ingredients = mutableListOf(2, 50, 15)
-
+    println("Введите число")
     val numberOfServings = readln().toIntOrNull() ?: run {
-        println("Введите число")
+        println("Вы ввели не число!")
         return
     }
 
