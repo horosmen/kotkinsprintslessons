@@ -1,12 +1,17 @@
 fun main() {
-    val ingredients = mutableListOf<String>()
     println("Hi friend, enter 5 ingredients.")
-    while (ingredients.size < 5) {
-        val input = readln()
-        if (!ingredients.contains(input)) ingredients.add(input)
 
+    val ingredients = mutableListOf<String>()
+    repeat(5) {
+        val input = readln()
+        ingredients.add(input)
     }
-    ingredients.sort()
-    ingredients[0] = ingredients[0].replaceFirstChar { it.uppercase() }
-    println(ingredients.joinToString(", "))
+
+    val uniqueIngredients = ingredients.distinct().toMutableList()
+
+    uniqueIngredients.sort()
+
+    uniqueIngredients[0] = uniqueIngredients[0].replaceFirstChar { it.uppercase() }
+
+    println(uniqueIngredients.joinToString(", "))
 }
