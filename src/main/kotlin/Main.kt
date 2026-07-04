@@ -6,7 +6,6 @@ fun main() {
         val input = readln()
         ingredients.add(input)
     }
-
     val uniqueIngredients = ingredients.distinct().toMutableList()
 
     uniqueIngredients.sort()
