@@ -3,10 +3,11 @@ fun main() {
 
     val resultHuman = rollDice()
 
+    println("Человек бросил:  ${resultHuman}.")
+
     println("Бросок компьютера")
 
     val resultComputer = rollDice()
-    println("Человек бросил:  ${resultHuman}.")
 
     println("Компьютер бросил:  ${resultComputer}.")
 
