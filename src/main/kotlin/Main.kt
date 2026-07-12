@@ -1,5 +1,6 @@
 fun main() {
     println("Бросок человека")
+
     val resultHuman = rollDice()
     Thread.sleep(10000)
     println("Бросок компьютера")
