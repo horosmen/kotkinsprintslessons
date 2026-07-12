@@ -1,17 +1,20 @@
 fun main() {
-
+    println("Бросок человека")
     val resultHuman = rollDice()
+    Thread.sleep(10000)
+    println("Бросок компьютера")
+    Thread.sleep(10000)
     val resultComputer = rollDice()
-    println("Human rolled a ${resultHuman}.")
+    println("Человек бросил:  ${resultHuman}.")
 
-    println("Computer rolled a ${resultComputer}.")
+    println("Компьютер бросил:  ${resultComputer}.")
 
     if (resultHuman > resultComputer) {
-        println("Humanity won.")
+        println("Победило человечество")
     } else if (resultHuman < resultComputer) {
-        println("The machine won.")
+        println("Победила машина")
     } else {
-        println("Friendship won.")
+        println("Победила дружба")
     }
 
 }
