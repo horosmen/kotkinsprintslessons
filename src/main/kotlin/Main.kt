@@ -10,9 +10,9 @@ fun main() {
         }
 
         println("Хотите бросить кости еще раз? Введите Да или Нет")
-        answer = readln()
+        answer = readln().trim().lowercase()
 
-    } while (answer == "Да")
+    } while (answer == "да")
 
     println("Человек выиграл $humanWins партий.")
 }
