@@ -9,7 +9,7 @@ fun userOne() {
     user.login = "admin"
     user.password = "admin"
     user.email = "horos030590@mail.ru"
-   println("Welcome ${user.id}, ${user.login}! you email ${user.email}")
+   println("Welcome ${user.id}, ${user.login}, ${user.password} you email ${user.email}")
 }
 
 fun userTwo() {
@@ -17,7 +17,7 @@ fun userTwo() {
     user.login = "admin"
     user.password = "admin"
     user.email = "yandex.ru"
-    println("Welcome ${user.id}, ${user.login}! you email ${user.email}")
+    println("Welcome ${user.id}, ${user.login}, ${user.password}! you email ${user.email}")
 }
 
 fun main() {
