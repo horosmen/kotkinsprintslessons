@@ -86,7 +86,7 @@ fun main() {
 
     // Теперь следующий код НЕ скомпилируется:
     // val hacker = ForumUser.Builder().setUserId(999).setUserName("Hacker").build()
-    // потому что Builder приватный и недоступен извне.
+
 
     forum.printThread()
 }
