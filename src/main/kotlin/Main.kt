@@ -82,8 +82,9 @@ fun main() {
     val user2 = forum.createNewUser("Bob")
 
     forum.createNewMessage(user1.userId, "Привет!")
-    forum.createNewMessage(user2.userId, "Привет, Bob!")
-
+    forum.createNewMessage(user1.userId, "Как ты")
+    forum.createNewMessage(user2.userId, "Привет, Alice!")
+    forum.createNewMessage(user2.userId, "Я в порядке спасибо")
     // Теперь следующий код НЕ скомпилируется:
     // val hacker = ForumUser.Builder().setUserId(999).setUserName("Hacker").build()
 
