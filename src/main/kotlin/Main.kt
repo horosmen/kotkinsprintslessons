@@ -24,11 +24,12 @@ class Weather(var dayTemperature: Double, var nightTemperature: Double, var prec
     }
 
 }
-    fun main() {
-        val weatherDay1 = Weather(31.2, 15.2, true)
-        val weatherDay2 = Weather(41.1, 19.2, false)
-        weatherDay1.weatherReport()
-        weatherDay2.weatherReport()
+
+fun main() {
+    val weatherDay1 = Weather(31.2, 15.2, true)
+    val weatherDay2 = Weather(41.1, 19.2, false)
+    weatherDay1.weatherReport()
+    weatherDay2.weatherReport()
 
 
-    }
+}
