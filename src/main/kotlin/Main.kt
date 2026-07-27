@@ -1,13 +1,4 @@
-class Weather(var dayTemperature: Double, var nightTemperature: Double, var precipitation: Boolean) {
-
-    init {
-        if (precipitation == false) {
-            precipitation = false
-        } else {
-            precipitation = true
-        }
-
-    }
+class Weather(val dayTemperature: Double, val nightTemperature: Double, val precipitation: Boolean) {
 
     fun weatherReport() {
         if (precipitation == false) {
