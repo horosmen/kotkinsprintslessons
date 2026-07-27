@@ -2,24 +2,33 @@ class Weather(var dayTemperature: Double, var nightTemperature: Double, var prec
 
     init {
         if (precipitation == false) {
-            println("You don't need an umbrella.")
+            precipitation = false
         } else {
-            println("You need an umbrella.")
+            precipitation = true
         }
 
     }
 
     fun weatherReport() {
-        println("Day temperature: $dayTemperature, Night temperature: $nightTemperature, precipitation: $precipitation")
+        if (precipitation == false) {
+            println(
+                "Day temperature: $dayTemperature, Night temperature: $nightTemperature, \n" +
+                        "You don't need an umbrella. "
+            )
+        } else {
+            println(
+                "Day temperature: $dayTemperature, Night temperature: $nightTemperature, \n" +
+                        "You need an umbrella. "
+            )
+        }
     }
-}
-
-
-fun main() {
-    val weatherDay1 = Weather(31.2, 15.2, true)
-    val weatherDay2 = Weather(41.1, 19.2, false)
-    weatherDay1.weatherReport()
-    weatherDay2.weatherReport()
-
 
 }
+    fun main() {
+        val weatherDay1 = Weather(31.2, 15.2, true)
+        val weatherDay2 = Weather(41.1, 19.2, false)
+        weatherDay1.weatherReport()
+        weatherDay2.weatherReport()
+
+
+    }
