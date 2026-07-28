@@ -1,26 +1,26 @@
-class Weather(val dayTemperature: Double, val nightTemperature: Double, val precipitation: Boolean) {
+class Weather(dayKelvin: Int, nightKelvin: Int, precipitation: Boolean) {
+
+    var dayTemperature: Int = 0
+    var nightTemperature: Int = 0
+    var precipitation: Boolean = false
+
+    init {
+        dayTemperature = dayKelvin - 273
+        nightTemperature = nightKelvin - 273
+        this.precipitation = precipitation
+
+    }
 
     fun weatherReport() {
-        if (precipitation == false) {
-            println(
-                "Day temperature: $dayTemperature, Night temperature: $nightTemperature, \n" +
-                        "You don't need an umbrella. "
-            )
-        } else {
-            println(
-                "Day temperature: $dayTemperature, Night temperature: $nightTemperature, \n" +
-                        "You need an umbrella. "
-            )
-        }
+        println("Day temperature: $dayTemperature ℃ , Night temperature: $nightTemperature ℃ , precipitation:$precipitation")
     }
 
 }
 
 fun main() {
-    val weatherDay1 = Weather(31.2, 15.2, true)
-    val weatherDay2 = Weather(41.1, 19.2, false)
+    val weatherDay1 = Weather(304, 300, true)
+    val weatherDay2 = Weather(300, 300, false)
     weatherDay1.weatherReport()
     weatherDay2.weatherReport()
-
 
 }
