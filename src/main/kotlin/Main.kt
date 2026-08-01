@@ -1,6 +1,3 @@
-package org.example
-
-fun main() {
-
+class TelephoneDirectory(var name: String, var phoneNumber: Long, val company: String? ) {
 
 }
