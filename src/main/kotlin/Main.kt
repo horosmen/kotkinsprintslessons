@@ -1,3 +1,16 @@
-class TelephoneDirectory(var name: String, var phoneNumber: Long, val company: String? ) {
-
+class Directory(val name: String, val phoneNumber: Long, val company: String? ) {
+    fun print() {
+        println("Имя: ${name}\n"+
+                "Номер: ${phoneNumber}\n"+
+                "Компания: ${company ?: "<не указано>"}")
+    }
 }
+
+fun main() {
+    val directoryAnton = Directory("Ростислав", 89123456789, "Reddit")
+    val directoryAnna = Directory("Анна", 890005554442, null)
+    directoryAnton.print()
+    directoryAnna.print()
+}
+
+
