@@ -1,4 +1,4 @@
-class Directory(val name: String, val phoneNumber: Long, val company: String? ) {
+class Directory(val name: String, val phoneNumber: Long, val company: String? = null) {
     fun print() {
         println("Имя: ${name}\n"+
                 "Номер: ${phoneNumber}\n"+
