@@ -1,4 +1,4 @@
-class Directory(val name: String, val phoneNumber: Long, val company: String? = null) {
+class PhoneRecord(val name: String, val phoneNumber: Long, val company: String? = null) {
     fun print() {
         println("Имя: ${name}\n"+
                 "Номер: ${phoneNumber}\n"+
@@ -7,8 +7,16 @@ class Directory(val name: String, val phoneNumber: Long, val company: String? = 
 }
 
 fun main() {
-    val directoryAnna = Directory("Анна", 890005554442, null)
-    directoryAnna.print()
+    val phoneBook = listOf(
+        PhoneRecord("Анна", 890004783221,null),
+        PhoneRecord("БорисБритва", 89066666666,"Мафия"),
+        PhoneRecord("Тони",8906666666454,null),
+        PhoneRecord("Борис", 89006662345, "Google"),
+        PhoneRecord("Дмитрий", 89009995678, "null")
+    )
+    val companies = phoneBook.mapNotNull { it.company }
+    println(companies)
+
 }
 
 
