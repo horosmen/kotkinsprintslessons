@@ -1,22 +1,31 @@
-class PhoneRecord(val name: String, val phoneNumber: Long, val company: String? = null) {
-    fun print() {
-        println("Имя: ${name}\n"+
-                "Номер: ${phoneNumber}\n"+
-                "Компания: ${company ?: "<не указано>"}")
-    }
+class ContactRecord(val name: String, val phoneNumber: String, val company: String? = null) {
+    fun print() = println("Имя: $name\nНомер: $phoneNumber\nКомпания: ${company ?: "<не указано>"}\n")
 }
 
 fun main() {
-    val phoneBook = listOf(
-        PhoneRecord("Анна", 890004783221,null),
-        PhoneRecord("БорисБритва", 89066666666,"Мафия"),
-        PhoneRecord("Тони",8906666666454,null),
-        PhoneRecord("Борис", 89006662345, "Google"),
-        PhoneRecord("Дмитрий", 89009995678, "null")
-    )
-    val companies = phoneBook.mapNotNull { it.company }
-    println(companies)
+    val phoneBook = generateSequence {
+        print("Имя: ")
+        val name = readln().trim().takeIf { it.isNotBlank() } ?: return@generateSequence null
 
+        print("Номер телефона: ")
+        var phoneInput = readln().trim()
+
+        // Удаляем всё, кроме цифр
+        phoneInput = phoneInput.filter { it.isDigit() }
+
+        if (phoneInput.isEmpty()) {
+            println("⚠️ Номер телефона не введён. Запись не будет добавлена.\n")
+            return@generateSequence null
+        }
+
+        print("Компания (можно оставить пустым): ")
+        val companyInput = readln().trim()
+        val company = companyInput.takeIf { it.isNotBlank() }
+
+        ContactRecord(name, phoneInput, company)
+    }.toList()
+
+    println("\n=== Телефонная книга ===")
+    if (phoneBook.isEmpty()) println("Телефонная книга пуста.")
+    else phoneBook.forEach(ContactRecord::print)
 }
-
-
