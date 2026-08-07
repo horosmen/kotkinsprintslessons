@@ -1,6 +1,6 @@
 fun main() {
     print("Введите номер телефона: ")
-    val phoneInput = readln().trim()
+    val phoneInput = readln()  // без trim() — пробелы считаются частью строки и делают её невалидной для toLong()
 
     val phoneNumber = try {
         phoneInput.toLong()
@@ -9,11 +9,7 @@ fun main() {
         null
     }
 
-    // Если номер успешно распарсился — выводим его, иначе ничего не делаем
     phoneNumber?.let { validNumber ->
         println("Номер принят: $validNumber")
-    } ?: run {
-        // Этот блок нужен только если хочется явно обработать случай ошибки после let.
-        // Но по сути вся обработка уже была в catch — здесь можно ничего не писать.
     }
 }
