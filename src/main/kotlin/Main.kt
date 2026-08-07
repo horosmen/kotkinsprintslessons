@@ -1,4 +1,4 @@
-class ContactRecord(val name: String, val phoneNumber: Long?, val company: String? = null) {
+class ContactEntry(val name: String, val phoneNumber: Long?, val company: String? = null) {
     fun print() {
         println("Имя: $name")
         println("Номер: ${phoneNumber ?: "<не указан>"}")
@@ -8,7 +8,7 @@ class ContactRecord(val name: String, val phoneNumber: Long?, val company: Strin
 }
 
 fun main() {
-    val phoneBook = mutableListOf<ContactRecord>()
+    val phoneBook = mutableListOf<ContactEntry>()
 
     println("Введите контакты (для завершения введите пустую строку в поле имени):")
 
@@ -18,38 +18,33 @@ fun main() {
         if (name.isBlank()) break
 
         print("Номер телефона: ")
-        var phoneInput = readln().trim()
+        val phoneInput = readln().trim()
 
-        // Очищаем от лишних символов (+, пробелы, дефисы, скобки и т.п.)
-        phoneInput = phoneInput.filter { it.isDigit() }
-
-        val phoneNumber = if (phoneInput.isEmpty()) {
-            println("⚠️ Номер телефона не введён. Запись не будет добавлена.\n")
+        // Не фильтруем: пробуем распарсить «как есть» — именно это и проверяет задачу
+        val phoneNumber = try {
+            phoneInput.toLong()
+        } catch (e: NumberFormatException) {
+            println("Некорректный номер телефона. Ошибка: ${e::class.simpleName}")
             null
-        } else {
-            phoneInput.toLongOrNull()?.also {
-                // Если toLongOrNull вернул число — всё ок
-            } ?: run {
-                println("⚠️ Введён некорректный номер телефона. Запись не будет добавлена.\n")
-                null
-            }
         }
 
-        // Если номер невалиден (null) — пропускаем эту итерацию, но не прерываем цикл
-        if (phoneNumber == null) continue
+        // Если номер невалиден (null) — пропускаем добавление, цикл продолжается
+        phoneNumber?.let { validNumber ->
+            print("Компания (можно оставить пустым): ")
+            val companyInput = readln().trim()
+            val company = if (companyInput.isBlank()) null else companyInput
 
-        print("Компания (можно оставить пустым): ")
-        val companyInput = readln().trim()
-        val company = if (companyInput.isBlank()) null else companyInput
-
-        phoneBook.add(ContactRecord(name, phoneNumber, company))
-        println("✅ Контакт добавлен.\n")
+            phoneBook.add(ContactEntry(name, validNumber, company))
+            println("Контакт добавлен.")
+        }
     }
 
-    println("\n=== Телефонная книга ===")
+    println()
+    println("=== Телефонная книга ===")
     if (phoneBook.isEmpty()) {
         println("Телефонная книга пуста.")
     } else {
-        phoneBook.forEach(ContactRecord::print)
+        phoneBook.forEach(ContactEntry::print)
     }
 }
+
