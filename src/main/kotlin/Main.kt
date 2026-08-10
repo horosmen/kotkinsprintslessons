@@ -1,72 +1,59 @@
 import kotlin.math.PI
 
-// Абстрактный класс — нельзя создать экземпляр Figure напрямую.
-// Он задаёт общий контракт для всех фигур: цвет и обязательные вычисления.
+// Константы для цветов, чтобы избежать повторения строк и возможных опечаток
+const val COLOR_BLACK = "черный"
+const val COLOR_WHITE = "белый"
+
+// Абстрактный класс Figure — основа для всех геометрических фигур
 abstract class Figure(val color: String) {
 
-    // Абстрактные методы — каждый наследник обязан предоставить свою реализацию.
+    // Абстрактные методы: каждый наследник обязан предоставить свою реализацию
     abstract fun area(): Double
     abstract fun perimeter(): Double
-
-    // Обычный (open) метод — может быть переопределён, но имеет реализацию по умолчанию.
-    // Слово open разрешает переопределение в дочерних классах.
-    open fun description(): String = "Фигура цвета $color"
 }
 
-// Класс круга наследует Figure.
-// В первичном конструкторе передаём цвет в родительский класс.
+// Класс круга
 class Circle(color: String, val radius: Double) : Figure(color) {
 
-    // Реализация площади круга: π * r^2
+    // Площадь круга: π * r^2
     override fun area(): Double = PI * radius * radius
 
-    // Реализация длины окружности: 2 * π * r
+    // Длина окружности (периметр): 2 * π * r
     override fun perimeter(): Double = 2 * PI * radius
-
-    // Переопределяем описание, используя super для вызова родительской версии.
-    // super.description() возвращает "Фигура цвета $color", к которой мы добавляем детали.
-    override fun description(): String = "${super.description()}, радиус = $radius"
 }
 
-// Класс прямоугольника наследует Figure.
+// Класс прямоугольника
 class Rectangle(color: String, val width: Double, val height: Double) : Figure(color) {
 
-    // Площадь прямоугольника
+    // Площадь прямоугольника: ширина * высота
     override fun area(): Double = width * height
 
-    // Периметр прямоугольника
+    // Периметр прямоугольника: 2 * (ширина + высота)
     override fun perimeter(): Double = 2 * (width + height)
-
-    // Расширяем описание через super
-    override fun description(): String =
-        "${super.description()}, ширина = $width, высота = $height"
 }
 
 fun main() {
-    // Создаём список фигур разных цветов.
+    // Создаём список фигур, используя константы для цвета
     val figures = listOf(
-        Circle("черный", 5.0),
-        Rectangle("черный", 4.0, 6.0),
-        Circle("белый", 3.0),
-        Rectangle("белый", 2.0, 3.0),
-        Circle("черный", 2.0),       // ещё один чёрный круг
-        Rectangle("белый", 5.0, 1.0) // ещё один белый прямоугольник
+        Circle(COLOR_BLACK, 5.0),
+        Rectangle(COLOR_BLACK, 4.0, 6.0),
+        Circle(COLOR_WHITE, 3.0),
+        Rectangle(COLOR_WHITE, 2.0, 3.0),
+        Circle(COLOR_BLACK, 2.0),       // дополнительный чёрный круг
+        Rectangle(COLOR_WHITE, 5.0, 1.0) // дополнительный белый прямоугольник
     )
 
-    // Выводим описания всех фигур (демонстрация super)
-    println("Все фигуры:")
-    figures.forEach { println(it.description()) }
-
-    // Сумма периметров всех чёрных фигур.
+    // Сумма периметров всех чёрных фигур
     val totalBlackPerimeter = figures
-        .filter { it.color == "черный" }
+        .filter { it.color == COLOR_BLACK }
         .sumOf { it.perimeter() }
 
-    // Сумма площадей всех белых фигур.
+    // Сумма площадей всех белых фигур
     val totalWhiteArea = figures
-        .filter { it.color == "белый" }
+        .filter { it.color == COLOR_WHITE }
         .sumOf { it.area() }
 
-    println("\nСумма периметров всех чёрных фигур: %.2f".format(totalBlackPerimeter))
+    // Выводим только требуемые результаты
+    println("Сумма периметров всех чёрных фигур: %.2f".format(totalBlackPerimeter))
     println("Сумма площадей всех белых фигур: %.2f".format(totalWhiteArea))
 }
