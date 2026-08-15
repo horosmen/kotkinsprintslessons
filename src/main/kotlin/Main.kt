@@ -39,7 +39,7 @@ fun main() {
     val seagull = Seagull()
     val duck = Duck()
 
-    // Демонстрация возможностей передвижения
+
     carp.swim()
 
     seagull.fly()
