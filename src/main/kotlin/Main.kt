@@ -1,20 +1,20 @@
+private const val PI = 3.14
+
 class Circle(initialRadius: Double) {
-    companion object {
-        private const val PI = 3.14
-    }
+    // Радиус передан через конструктор и не виден извне класса вообще
+    private var radius: Double = initialRadius
 
-    init {
-        require(initialRadius > 0) { "Радиус должен быть положительным числом" }
-    }
+    // Длина окружности: C = 2 * π * r
+    fun getCircumference(): Double = 2 * PI * radius
 
-    var radius: Double = initialRadius
-        private set
+    // Площадь круга: S = π * r^2
+    fun getArea(): Double = PI * radius * radius
+}
 
-    fun setRadius(value: Double) {
-        require(value > 0) { "Радиус должен быть положительным числом" }
-        radius = value
-    }
+fun main() {
+    val circle = Circle(5.0)
 
-    val circumference: Double get() = 2 * PI * radius
-    val area: Double get() = PI * radius * radius
+    println("Радиус: 5.0")
+    println("Длина окружности: ${circle.getCircumference()}")
+    println("Площадь круга: ${circle.getArea()}")
 }
