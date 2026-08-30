@@ -1,8 +1,9 @@
 class QuizItem(questionText: String, answerText: String) {
-    // Свойство для вопроса — только с геттером (по умолчанию val)
-    val question: String = questionText
+    // Свойство для вопроса — с явно прописанным геттером
+    var question: String = questionText
+        get() = field
 
-    // Свойство для ответа — с явными геттером и сеттером
+    // Свойство для ответа — с явно прописанными геттером и сеттером
     var answer: String = answerText
         get() = field
         set(value) {
