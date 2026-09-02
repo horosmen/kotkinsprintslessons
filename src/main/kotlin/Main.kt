@@ -1,46 +1,18 @@
-// Базовый интерфейс для представления информации о товарах в заказе
-interface OrderItemsRepresentation {
-    fun getItemsText(): String
-}
+class Order(val orderNumber: String) {
 
-// Реализация для одного товара (строка)
-class SingleItem(private val itemName: String) : OrderItemsRepresentation {
-    override fun getItemsText() = "Заказан товар: $itemName"
-}
-
-// Реализация для нескольких товаров (список строк)
-class MultipleItems(private val items: List<String>) : OrderItemsRepresentation {
-    override fun getItemsText(): String {
-        val itemsText = items.joinToString(", ")
-        return "Заказаны следующие товары: $itemsText"
+    fun printOrder(item: String) {
+        println("Заказан товар: $item")
     }
-}
 
-data class Order(
-    val orderNumber: String,
-    private val itemsRepresentation: OrderItemsRepresentation
-) {
-    fun printOrderInfo() {
-        println("Заказ №$orderNumber")
-        println(itemsRepresentation.getItemsText())
-        println() // пустая строка для читаемости вывода
+    fun printOrder(items: List<String>) {
+        println("Заказаны следующие товары: ${items.joinToString(", ")}")
     }
 }
 
 fun main() {
-    // Объект 1: заказ с одним товаром
-    val singleOrder = Order(
-        orderNumber = "ORD-1001",
-        itemsRepresentation = SingleItem("Наушники беспроводные")
-    )
+    val order1 = Order("ORD-1001")
+    order1.printOrder("Наушники беспроводные")
 
-    // Объект 2: заказ с несколькими товарами
-    val multiOrder = Order(
-        orderNumber = "ORD-1002",
-        itemsRepresentation = MultipleItems(listOf("Клавиатура механическая", "Мышь игровая", "Коврик для мыши"))
-    )
-
-    // Вызов метода вывода информации
-    singleOrder.printOrderInfo()
-    multiOrder.printOrderInfo()
+    val order2 = Order("ORD-1002")
+    order2.printOrder(listOf("Клавиатура механическая", "Мышь игровая", "Коврик для мыши"))
 }
