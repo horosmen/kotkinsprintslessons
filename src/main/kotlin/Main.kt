@@ -2,11 +2,6 @@
 abstract class Animal(val name: String) {
     // Абстрактный метод: каждый подкласс сам решает, что выводит при еде
     abstract fun eat()
-
-    // Общий метод для сна — он одинаков для всех
-    fun sleep() {
-        println("$name -> спит")
-    }
 }
 
 class Fox(name: String) : Animal(name) {
@@ -39,11 +34,5 @@ fun main() {
     // В цикле вызываем метод приёма пищи для каждого экземпляра
     for (animal in animals) {
         animal.eat()
-    }
-
-    // Пример вызова sleep() (по желанию)
-    println("---")
-    for (animal in animals) {
-        animal.sleep()
     }
 }
